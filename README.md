@@ -63,3 +63,10 @@ the handler is safe to skip, and keep the handlers themselves small.
 - `guard.run_essential(func)` — run `func` regardless of guard state.
 - `guard.run_handlers()` — run enabled handlers in registration order and return their names.
 - `guard.state` — the live `GuardState` (`disabled`, `threshold_bytes`, `resume_bytes`).
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
