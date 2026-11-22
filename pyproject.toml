@@ -1,6 +1,6 @@
 [project]
 name = "out-of-memory-guard"
-version = "0.1.0"
+version = "0.1.1"
 description = "Monitors available memory and disables non-essential handlers before allocations fail."
 requires-python = ">=3.10"
 dependencies = []
